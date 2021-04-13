@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer, useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Styles
+import "./styles.css";
 
-export default App;
+// Data
+import initialState from "./initialstate";
+import { reducer, StoreContext, actions } from "./reducer";
+
+// Components
+// import AddItem from "./components/AddItem";
+// import ShoppingList from "./components/ShoppingList";
+
+export default props => {    
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    useEffect(() => {
+      // simulate loading of items from an API
+      dispatch({
+          type: actions.GET_ITEMS
+      });
+
+      setTimeout(() => {
+          dispatch({
+          type: actions.GET_ITEMS_SUCCESS
+          });
+      }, 2000);
+    }, []);
+
+    console.log(state);
+
+    return (
+        <div>The app has landed</div>
+    );
+};
