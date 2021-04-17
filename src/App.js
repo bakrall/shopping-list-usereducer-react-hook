@@ -29,7 +29,27 @@ export default props => {
 
     console.log(state);
 
+    //The line, <StoreContext.Provider value={{ dispatch, state }}> allows us to pass down,
+    //the dispatch function and store state to child components.
+    //This is a key part of the process as they allow us to access dispatch and state from child components
+
     return (
-        <div>The app has landed</div>
+      <StoreContext.Provider value={{ dispatch, state }}>
+        <h1>Redux fun with shopping lists</h1>
+        <hr />
+        {state.loadingItems && <div className="loading">...loading</div>}
+        {!state.loadingItems && (
+            <div className="columns">
+            <div className="column">
+                <h2>Add a new item</h2>
+              
+            </div>
+            <div className="column">
+                <h2>Shopping list</h2>
+                
+            </div>
+            </div>
+        )}
+      </StoreContext.Provider>
     );
 };
