@@ -9,7 +9,7 @@ import { reducer, StoreContext, actions } from "./reducer";
 
 // Components
 // import AddItem from "./components/AddItem";
-// import ShoppingList from "./components/ShoppingList";
+import ShoppingList from "./components/ShoppingList";
 
 export default props => {    
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -46,7 +46,7 @@ export default props => {
             </div>
             <div className="column">
                 <h2>Shopping list</h2>
-                
+                <ShoppingList />
             </div>
             </div>
         )}
