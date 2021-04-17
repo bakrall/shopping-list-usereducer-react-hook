@@ -8,7 +8,7 @@ import initialState from "./initialstate";
 import { reducer, StoreContext, actions } from "./reducer";
 
 // Components
-// import AddItem from "./components/AddItem";
+import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 
 export default props => {    
@@ -42,7 +42,7 @@ export default props => {
             <div className="columns">
             <div className="column">
                 <h2>Add a new item</h2>
-              
+                <AddItem />
             </div>
             <div className="column">
                 <h2>Shopping list</h2>
